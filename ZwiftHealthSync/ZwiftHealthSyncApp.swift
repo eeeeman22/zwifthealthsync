@@ -11,7 +11,7 @@ import SwiftUI
 struct ZwiftHealthSyncApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            OnboardingView()
         }
     }
 }

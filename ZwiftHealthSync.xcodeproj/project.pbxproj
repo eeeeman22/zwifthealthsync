@@ -10,9 +10,22 @@
 		DB8A219B2F2EA3710053CEC9 /* ZwiftHealthSync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZwiftHealthSync.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		DB8A21BF2F2F288C0053CEC9 /* Exceptions for "ZwiftHealthSync" folder in "ZwiftHealthSync" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = DB8A219A2F2EA3710053CEC9 /* ZwiftHealthSync */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		DB8A219D2F2EA3710053CEC9 /* ZwiftHealthSync */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				DB8A21BF2F2F288C0053CEC9 /* Exceptions for "ZwiftHealthSync" folder in "ZwiftHealthSync" target */,
+			);
 			path = ZwiftHealthSync;
 			sourceTree = "<group>";
 		};
@@ -249,10 +262,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZwiftHealthSync/ZwiftHealthSync.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2B96R8MZF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZwiftHealthSync/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To ensure duplicate workouts aren't written";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -280,10 +297,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = ZwiftHealthSync/ZwiftHealthSync.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F2B96R8MZF;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZwiftHealthSync/Info.plist;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "To ensure duplicate workouts aren't written";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
