@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zwift Health Sync - Wireframes</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0b;
+            --bg-card: #151517;
+            --border: #2a2a2e;
+            --text-primary: #e8e8ea;
+            --text-secondary: #9a9aa3;
+            --accent-orange: #ff6b35;
+            --accent-blue: #00b8d4;
+            --accent-green: #00e676;
+            --zwift-orange: #fc6719;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--zwift-orange), var(--accent-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .phone-frame {
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 40px;
+            padding: 16px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .phone-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(252, 103, 25, 0.2);
+        }
+
+        .screen-title {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .notch {
+            width: 120px;
+            height: 24px;
+            background: var(--bg-dark);
+            border-radius: 0 0 16px 16px;
+            margin: 0 auto 8px;
+        }
+
+        .screen {
+            background: #ffffff;
+            border-radius: 24px;
+            aspect-ratio: 9/19.5;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Onboarding Screen */
+        .onboarding {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a1d 0%, #2d2d32 100%);
+            text-align: center;
+        }
+
+        .logo-placeholder {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--zwift-orange), var(--accent-blue));
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .onboarding h2 {
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .onboarding p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+
+        .btn-primary {
+            background: var(--zwift-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-secondary);
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            font-size: 0.9rem;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        /* Main Dashboard */
+        .dashboard {
+            background: #f5f5f7;
+            padding: 1.5rem;
+        }
+
+        .status-header {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .sync-status {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .status-text {
+            color: #1d1d1f;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .last-sync {
+            color: #86868b;
+            font-size: 0.8rem;
+            margin-left: 2rem;
+        }
+
+        .sync-button {
+            background: linear-gradient(135deg, var(--zwift-orange), #ff8a50);
+            color: white;
+            padding: 1rem;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(252, 103, 25, 0.3);
+        }
+
+        .recent-rides {
+            color: #1d1d1f;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .ride-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .ride-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 0.8rem;
+        }
+
+        .ride-title {
+            color: #1d1d1f;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .ride-date {
+            color: #86868b;
+            font-size: 0.75rem;
+        }
+
+        .synced-badge {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .ride-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.8rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            color: #1d1d1f;
+            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .stat-label {
+            color: #86868b;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Ride Detail */
+        .ride-detail {
+            background: #f5f5f7;
+            padding: 1.5rem;
+        }
+
+        .back-nav {
+            color: var(--zwift-orange);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .route-map {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            height: 180px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .detail-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            color: #1d1d1f;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-label {
+            color: #86868b;
+            font-size: 0.75rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .metric-value {
+            color: #1d1d1f;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .metric-unit {
+            color: #86868b;
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-left: 0.2rem;
+        }
+
+        /* Settings */
+        .settings {
+            background: #f5f5f7;
+            padding: 1.5rem;
+        }
+
+        .settings-group {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .settings-item {
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .settings-item:last-child {
+            border-bottom: none;
+        }
+
+        .settings-label {
+            color: #1d1d1f;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .settings-value {
+            color: #86868b;
+            font-size: 0.85rem;
+        }
+
+        .toggle {
+            width: 48px;
+            height: 28px;
+            background: var(--accent-green);
+            border-radius: 14px;
+            position: relative;
+        }
+
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            right: 2px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .notes {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .notes h3 {
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .notes ul {
+            list-style: none;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .notes li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .notes li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--zwift-orange);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Zwift Health Sync</h1>
+        <p class="subtitle">iOS App Wireframes • Zwift → Apple Health Integration</p>
+
+        <div class="wireframe-grid">
+            <!-- Onboarding Screen -->
+            <div>
+                <p class="screen-title">01 • Onboarding</p>
+                <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="screen onboarding">
+                        <div class="logo-placeholder">⚡</div>
+                        <h2>Sync Zwift to<br>Apple Health</h2>
+                        <p>Get accurate power, heart rate, and ride data synced seamlessly</p>
+                        <button class="btn-primary">Connect Zwift Account</button>
+                        <button class="btn-secondary">Learn More</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Dashboard -->
+            <div>
+                <p class="screen-title">02 • Dashboard</p>
+                <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="screen dashboard">
+                        <div class="status-header">
+                            <div class="sync-status">
+                                <div class="status-dot"></div>
+                                <span class="status-text">Connected</span>
+                            </div>
+                            <p class="last-sync">Last synced 2 hours ago</p>
+                            <button class="sync-button">Sync Now</button>
+                        </div>
+
+                        <h3 class="recent-rides">Recent Rides</h3>
+
+                        <div class="ride-card">
+                            <div class="ride-header">
+                                <div>
+                                    <div class="ride-title">Watopia • Volcano Climb</div>
+                                    <div class="ride-date">Today, 7:15 AM</div>
+                                </div>
+                                <span class="synced-badge">✓ Synced</span>
+                            </div>
+                            <div class="ride-stats">
+                                <div class="stat">
+                                    <div class="stat-value">245<span style="font-size: 0.7em; font-weight: 400;">w</span></div>
+                                    <div class="stat-label">Avg Power</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-value">42:15</div>
+                                    <div class="stat-label">Duration</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-value">18.2</div>
+                                    <div class="stat-label">Miles</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ride-card">
+                            <div class="ride-header">
+                                <div>
+                                    <div class="ride-title">France • Ventoux</div>
+                                    <div class="ride-date">Yesterday, 6:30 AM</div>
+                                </div>
+                                <span class="synced-badge">✓ Synced</span>
+                            </div>
+                            <div class="ride-stats">
+                                <div class="stat">
+                                    <div class="stat-value">228<span style="font-size: 0.7em; font-weight: 400;">w</span></div>
+                                    <div class="stat-label">Avg Power</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-value">1:18:42</div>
+                                    <div class="stat-label">Duration</div>
+                                </div>
+                                <div class="stat">
+                                    <div class="stat-value">31.5</div>
+                                    <div class="stat-label">Miles</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ride Detail -->
+            <div>
+                <p class="screen-title">03 • Ride Detail</p>
+                <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="screen ride-detail">
+                        <div class="back-nav">← Back</div>
+                        
+                        <div class="route-map">
+                            Route Map Preview
+                        </div>
+
+                        <div class="detail-section">
+                            <div class="section-title">Ride Summary</div>
+                            <div style="color: #1d1d1f; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem;">
+                                Watopia • Volcano Climb
+                            </div>
+                            <div style="color: #86868b; font-size: 0.85rem;">
+                                Saturday, Jan 31 • 7:15 AM
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <div class="section-title">Performance Metrics</div>
+                            <div class="metrics-grid">
+                                <div class="metric-item">
+                                    <div class="metric-label">Average Power</div>
+                                    <div class="metric-value">245<span class="metric-unit">watts</span></div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Max Power</div>
+                                    <div class="metric-value">412<span class="metric-unit">watts</span></div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Avg Heart Rate</div>
+                                    <div class="metric-value">152<span class="metric-unit">bpm</span></div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Avg Cadence</div>
+                                    <div class="metric-value">87<span class="metric-unit">rpm</span></div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Distance</div>
+                                    <div class="metric-value">18.2<span class="metric-unit">mi</span></div>
+                                </div>
+                                <div class="metric-item">
+                                    <div class="metric-label">Elevation</div>
+                                    <div class="metric-value">1,247<span class="metric-unit">ft</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="detail-section">
+                            <div class="section-title">Equipment</div>
+                            <div style="color: #1d1d1f; font-size: 0.95rem;">
+                                Zwift Carbon • Zipp 808 Wheels
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings -->
+            <div>
+                <p class="screen-title">04 • Settings</p>
+                <div class="phone-frame">
+                    <div class="notch"></div>
+                    <div class="screen settings">
+                        <h3 class="recent-rides">Settings</h3>
+
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <span class="settings-label">Zwift Account</span>
+                                <span class="settings-value">Connected</span>
+                            </div>
+                            <div class="settings-item">
+                                <span class="settings-label">Apple Health</span>
+                                <span class="settings-value">Authorized</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <span class="settings-label">Auto-Sync</span>
+                                <div class="toggle"></div>
+                            </div>
+                            <div class="settings-item">
+                                <span class="settings-label">Sync Power Data</span>
+                                <div class="toggle"></div>
+                            </div>
+                            <div class="settings-item">
+                                <span class="settings-label">Sync Heart Rate</span>
+                                <div class="toggle"></div>
+                            </div>
+                            <div class="settings-item">
+                                <span class="settings-label">Sync Cadence</span>
+                                <div class="toggle"></div>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <span class="settings-label">Notifications</span>
+                                <div class="toggle"></div>
+                            </div>
+                            <div class="settings-item">
+                                <span class="settings-label">Sync Confirmation</span>
+                                <span class="settings-value">Enabled</span>
+                            </div>
+                        </div>
+
+                        <div class="settings-group">
+                            <div class="settings-item">
+                                <span class="settings-label">Subscription</span>
+                                <span class="settings-value">$2/year</span>
+                            </div>
+                            <div class="settings-item">
+                                <span class="settings-label">Version</span>
+                                <span class="settings-value">1.0.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes">
+            <h3>Design Notes & Key Features</h3>
+            <ul>
+                <li><strong>Core Flow:</strong> User logs in with Zwift → authorizes Apple Health → sees recent rides → can manually sync or enable auto-sync</li>
+                <li><strong>Dashboard Focus:</strong> Quick status check + recent rides list with key metrics visible at a glance</li>
+                <li><strong>Ride Detail:</strong> Full metadata display including power, HR, cadence, elevation, gear, route map screenshot</li>
+                <li><strong>Sync Strategy:</strong> Manual "Sync Now" button + optional auto-sync toggle for set-it-and-forget-it users</li>
+                <li><strong>Data Priority:</strong> Power (watts), HR from external sensor, cadence, elevation, timing, distance, gear/bike selection</li>
+                <li><strong>Minimal Premium:</strong> Clean UI with no bloat - just Zwift → Apple Health, nothing else</li>
+                <li><strong>Visual Touch:</strong> Route map screenshot integration for each ride (makes it feel less clinical)</li>
+                <li><strong>Settings Simplicity:</strong> Toggle what syncs, manage connections, that's it</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
